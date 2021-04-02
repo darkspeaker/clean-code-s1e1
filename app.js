@@ -8,45 +8,48 @@
 
 // Event handling, user interaction is what starts the code execution.
 
-var taskInput=document.getElementById("new-task");//Add a new task.
-var addButton=document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder=document.getElementById("incompleteTasks");//ul of #incompleteTasks
-var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
+const taskInput = document.querySelector(".new-task");//Add a new task.
+// var taskInput = document.getElementById("new-task");//Add a new task.    
+console.log(taskInput)
+const addButton = document.querySelector('.add-item-btn')
+// var addButton=document.getElementsByTagName("button")[0];//first button
+
+const incompleteTaskHolder = document.querySelector('.incomplete-tasks')
+// var incompleteTaskHolder=document.getElementById("incompleteTasks");//ul of #incompleteTasks
+
+const completedTasksHolder = document.querySelector('.completed-tasks')
+// var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
 
 
 //New task list item
-var createNewTaskElement=function(taskString){
-
-    var listItem=document.createElement("li");
-
+function createNewTaskElement(taskString){
+    const listItem = document.createElement("li");
     //input (checkbox)
-    var checkBox=document.createElement("input");//checkbx
+    const checkBox = document.createElement("input");//checkbx
     //label
-    var label=document.createElement("label");//label
+    const label = document.createElement("label");//label
     //input (text)
-    var editInput=document.createElement("input");//text
+    const editInput = document.createElement("input");//text
     //button.edit
-    var editButton=document.createElement("button");//edit button
-
+    const editButton = document.createElement("button");//edit button
     //button.delete
-    var deleteButton=document.createElement("button");//delete button
-    var deleteButtonImg=document.createElement("img");//delete button image
-
-    label.innerText=taskString;
-    label.className='task';
+    const deleteButton = document.createElement("button");//delete button
+    const deleteButtonImg = document.createElement("img");//delete button image
+    label.innerText = taskString;
+    label.className = 'task-label';
 
     //Each elements, needs appending
-    checkBox.type="checkbox";
-    editInput.type="text";
-    editInput.className="task";
+    checkBox.type = "checkbox";
+    editInput.type = "text";
+    editInput.className = "task-edit";
 
-    editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="edit";
-
-    deleteButton.className="delete";
-    deleteButtonImg.src='./remove.svg';
+    listItem.classList.add('incomplete-tasks__item')
+    listItem.classList.add('task-list__item')
+    editButton.innerText = "Edit"; //innerText encodes special characters, HTML does not.
+    editButton.className = "edit";
+    deleteButton.className = "delete";
+    deleteButtonImg.src = './remove.svg';
     deleteButton.appendChild(deleteButtonImg);
-
 
     //and appending.
     listItem.appendChild(checkBox);
