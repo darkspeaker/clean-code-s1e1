@@ -30,7 +30,7 @@ body {
 .task-edit {
   width: 56%;
   display: inline-block;
-  flex-grow: 1
+  flex-grow: 1;
 }
 .add-item__row {
   display: flex;
@@ -133,16 +133,17 @@ button.delete img:hover {
   transform: rotateZ(0);
 }
 /* Completed */
-ul#completed-tasks label {
+.completed-tasks .task-edit {
   text-decoration: line-through;
   color: #888;
 }
 /* Edit Task */
 .task-list__item_edit-mode .task-label,
-.task-list__item .task-edit{
+.task-list__item .task-edit {
   display: none;
 }
-.task-list__item.task-list__item_edit-mode .task-edit[type=text]{
+.task-list__item.task-list__item_edit-mode .task-edit[type=text] {
   display: inline-block;
   width: 224px;
+  text-decoration: none;
 }
